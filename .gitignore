@@ -1,0 +1,16 @@
+# Docker
+.env
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Ansible
+*.retry
+.ansible/
+
+# Logs
+*.log

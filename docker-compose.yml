@@ -1,0 +1,20 @@
+services:
+  semaphore:
+    image: semaphoreui/semaphore:latest
+    container_name: semaphore
+    ports:
+      - "3001:3000"
+    environment:
+      SEMAPHORE_DB_DIALECT: bolt
+      SEMAPHORE_ADMIN: admin
+      SEMAPHORE_ADMIN_PASSWORD: changeme
+      SEMAPHORE_ADMIN_NAME: Admin
+      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+      DOCKER_CONTENT_TRUST: 0
+    volumes:
+      - semaphore-data:/etc/semaphore
+      - ./ansible:/ansible:ro
+    restart: unless-stopped
+
+volumes:
+  semaphore-data:
